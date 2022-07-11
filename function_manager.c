@@ -60,6 +60,8 @@ int _switch(char c, va_list arg)
 		case 'X':
 			cont += print_base16_upper_lower(arg, "0123456789ABCDEF");
 			break;
+		case 'S':
+			cont += print_STR(arg);
 		default:
 			cont = -1;
 	}
