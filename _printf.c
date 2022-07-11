@@ -1,5 +1,4 @@
 #include "main.h"
-#include "main.h"
 
 /**
  * print_op - function to check which specifier to print
