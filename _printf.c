@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 /**
  * print_op - function to check which specifier to print
  * @format: string being passed
@@ -57,4 +58,19 @@ int _printf(const char *format, ...)
 		{"s", str},
 		{"d", _int},
 		{"b", _bin},
+		{"i", _int},
+		{"u", _ui},
+		{"o", _oct},
+		{"x", _hex_l},
+		{"X", _hex_u},
+		{"R", _rot13},
+		{NULL, NULL}
+	};
 
+	if (format == NULL)
+		return (-1);
+	va_start(list, format);
+	a = print_op(format, ops, list);
+	va_end(list);
+	return (a);
+}
