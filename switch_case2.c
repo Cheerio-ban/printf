@@ -4,7 +4,6 @@
 /**
  * print_ptr - print_base16_upper_lower
  * @arg: va_list parameter
- *
  * Description: This function print address pointer
  * in representation parameter for print hexadecimal format
  * Return: address pointer
@@ -56,7 +55,6 @@ int print_ptr(va_list arg)
 /**
  * print_rot13 - prints a string using rot13
  * @arg: list of arguments from _printf
- *
  * Return: length of the printed string
  */
 int print_rot13(va_list arg)
@@ -89,7 +87,6 @@ int print_rot13(va_list arg)
  * print_rev - prints a string in reverse
  * @arg: argument from _printf
  * if a flag is passed to _printf
- *
  * Return: length of the printed string
  */
 int print_rev(va_list arg)
@@ -114,70 +111,4 @@ int print_rev(va_list arg)
 	}
 
 	return (i);
-}
-
-/**
- * print_unsignedIntToHex - prints unsigned int to hexadecimal.
- * @num: number to print
- * @_case: letter `a` on the case to print it (upper or lower)
- * Return: number or char printed
- */
-int print_unsignedIntToHex(unsigned int num, char _case)
-{
-	unsigned int num2;
-	int i, j, remainder, nbrCharacters = 0;
-	char *numhex;
-
-	for (num2 = num; num2 != 0; nbrCharacters++, num2 /= 16)
-	;
-
-	numhex = malloc(nbrCharacters);
-	for (i = 0; num != 0; i++)
-	{
-		remainder = num % 16;
-		if (remainder < 10)
-			numhex[i] = remainder + '0';
-		else
-			numhex[i] = remainder - 10 + _case;
-		num = num / 16;
-	}
-	for (j = i - 1; j >= 0; j--)
-		_putchar(numhex[j]);
-	free(numhex);
-	return (nbrCharacters);
-}
-
-
-/**
- * print_STR - prints a string with a `S` (upper case) specificer
- * @arg: argument
- * Return: number of character printed
- */
-
-int print_STR(va_list arg)
-{
-iint i;
-char *str = va_arg(arg, char*);
-
-if (str == NULL)
-	str = "(null)";
-else if (*str == '\0')
-	return (-1);
-
-for (i = 0; str[i]; i++)
-{
-	if ((str[i] < 32 && str[i] > 0) || str[i] >= 127)
-	{
-		_putchar('\\');
-		_putchar('x');
-		if (i < 16)
-			_putchar('0');
-
-		print_unsignedIntToHex(str[i], 'A');
-	}
-	else
-		_putchar(str[i]);
-}
-
-return (i);
 }
