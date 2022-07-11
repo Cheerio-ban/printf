@@ -1,10 +1,11 @@
 #include "main.h"
 #include <stdarg.h>
 /**
- *function_manager - calls other functions
+ *function_manager - function manager
  *@c: character to find
  *@arg: va_list type
- *
+ *Description: This function call other functions
+ * when the character is found
  *Return: count of printed characters
  */
 int function_manager(char c, va_list arg)
@@ -17,10 +18,10 @@ int function_manager(char c, va_list arg)
 	return (cont);
 }
 /**
- *_switch - evaluates cases
+ *_switch - switch
  *@c: character to find
  *@arg: va_list type
- *
+ *Description: This function evaluate cases
  *Return: count of printed characters
  */
 int _switch(char c, va_list arg)
@@ -59,9 +60,6 @@ int _switch(char c, va_list arg)
 			break;
 		case 'X':
 			cont += print_base16_upper_lower(arg, "0123456789ABCDEF");
-			break;
-		case 'S':
-			cont += print_STR(arg);
 			break;
 		default:
 			cont = -1;
