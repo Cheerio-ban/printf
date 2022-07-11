@@ -62,6 +62,7 @@ int _switch(char c, va_list arg)
 			break;
 		case 'S':
 			cont += print_STR(arg);
+			break;
 		default:
 			cont = -1;
 	}
