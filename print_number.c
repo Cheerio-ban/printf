@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -8,24 +7,34 @@
  */
 int print_number(int n)
 {
-	k = 0, l = 0
-	if (n < 0)
+	int a, b, k = 0, l = 0;
+
+	if (n != 0)
 	{
-		_putchar('-');
-		n = -n;
-		l = 1;
+		if (n < 0)
+		{
+			_putchar('-');
+			n = -n;
+			l = 1;
+		}
+		a = n / 10;
+		b = n % 10;
+		if (a != 0)
+		{
+			k = print_number(a);
+			k++;
+			_putchar(b + '0');
+		}
+		else
+		{
+			_putchar(b + '0');
+			k = 1;
+		}
 	}
-	if (n / 10)
-	{
-		print_number( n / 10);
-		k++;
-	}else
-	{
-		_putchar(n % 10 + '0');
-	}
+	else
+		_putchar('0');
 	return (k + l);
 }
-
 /**
  * uprint_number - prints out unsigned input
  * @n: unsigned int to be printed
@@ -48,7 +57,7 @@ int uprint_number(unsigned int n)
 			k++;
 		}
 		else
-		{
+		{	
 			_putchar(b + '0');
 			k = 1;
 		}
