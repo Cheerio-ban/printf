@@ -1,33 +1,30 @@
 #include "main.h"
 
 /**
- * _oct - function to print octal
- * @octo: list being passed
- * Return: updated count
+ * coctal - converts decimal to octal and prints it
+ * @n: number to be converted
+ *
+ * Return: integer
  */
-int _oct(va_list octo)
+int coctal(unsigned int n)
 {
-	int count = 0, i;
-	int *arr;
-	unsigned int n = va_arg(octo, unsigned int);
-	unsigned int tmp = n;
+	int i = 1, j, k = 0;
+	unsigned int temp;
+	char oct[50];
 
-	while (n / 8 != 0)
+	while (n != 0)
 	{
-		n /= 8;
-		count++;
+		temp = n % 8;
+		temp += 48;
+		oct[i++] = temp;
+		n = n / 8;
 	}
-	count++;
-	arr = malloc(count * sizeof(int));
-	for (i = 0; i < count; i++)
+	j = i - 1;
+	while (j > 0)
 	{
-		arr[i] = tmp % 8;
-		tmp /= 8;
+		_putchar(oct[j]);
+		j--;
+		k++;
 	}
-	for (i = count - 1; i >= 0; i--)
-	{
-		_putchar(arr[i] + '0');
-	}
-	free(arr);
-	return (count);
+	return (k);
 }

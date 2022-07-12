@@ -1,38 +1,24 @@
 #include "main.h"
 
 /**
- * _bin - function to print binary
- * @bin: list being passed
- * Return: updated count return
+ * cbinary - converts decimal to binary
+ * @n: number to be converted
+ * @d: base 2 int
+ *
+ * Return: n in base 2
  */
-int _bin(va_list bin)
+unsigned int cbinary(unsigned int n, unsigned int d)
 {
-	int count = 0, i;
-	int *arr;
-	unsigned int n = va_arg(bin, unsigned int);
-	unsigned int tmp = n;
+	unsigned int r;
 
-	while (n / 2 != 0)
+	if (n == 1)
+		d = 1;
+	else
 	{
+		r = n % 2;
 		n /= 2;
-		count++;
+		d = cbinary(n, r);
+		d = (10 * d) + r;
 	}
-	count++;
-	arr = malloc(count * sizeof(int));
-	if (arr == NULL)
-	{
-		free(arr);
-		return (0);
-	}
-	for (i = 0; i < count; i++)
-	{
-		arr[i] = tmp % 2;
-		tmp /= 2;
-	}
-	for (i = count - 1; i >= 0; i--)
-	{
-		_putchar(arr[i] + '0');
-	}
-	free(arr);
-	return (count);
+	return (d);
 }
