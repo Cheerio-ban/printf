@@ -8,16 +8,22 @@
  */
 int print_number(int n)
 {
+	k = 0, l = 0
 	if (n < 0)
 	{
 		_putchar('-');
 		n = -n;
+		l = 1;
 	}
 	if (n / 10)
+	{
 		print_number( n / 10);
-
-	_putchar(n % 10 + '0');
-	return (0);
+		k++;
+	}else
+	{
+		_putchar(n % 10 + '0');
+	}
+	return (k + l);
 }
 
 /**
