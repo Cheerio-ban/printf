@@ -19,5 +19,6 @@ char *getp(unsigned int x)
 char *pts(void *x)
 {
 	char *t = (char *)x;
+
 	return (t);
 }
