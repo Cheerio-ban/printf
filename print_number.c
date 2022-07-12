@@ -57,7 +57,7 @@ int uprint_number(unsigned int n)
 			k++;
 		}
 		else
-		{	
+		{
 			_putchar(b + '0');
 			k = 1;
 		}
